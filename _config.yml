@@ -4,6 +4,7 @@
 # 3. config.yml
 
 name: jon_chelle
+baseurl: /jon_chelle
 name: jonchelle
 description: "Jonathan & Michelle tying the knot"
 author:
