@@ -1,0 +1,136 @@
+/*
+Global
+ */
+
+// Breakpoints
+$large-mobile-up:     new-breakpoint(min-width 481px);
+$tablet-up:                  new-breakpoint(min-width 769px);
+$large-mobile:          new-breakpoint(min-width 481px max-width 768px);
+
+html {
+  background-color: tint($mint, 90%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  text-align: center;
+}
+
+.logo {
+  display: inline-block;
+  color: $mint;
+  padding: $padding * .75;
+  transition: all $transition-speed/2 $easeInOutBack;
+
+  h1 {
+      font-size: 2.8em;
+
+      @include margin(0);
+  }
+
+  h1,
+  .sub-heading {
+    display: inline-block;
+  }
+
+  &:hover {
+    transform: scale(1.2) translateZ(0) !important;
+  }
+
+  @include media($tablet-up) {
+    h1 {
+      font-size: $h2;
+    }
+  }
+
+}
+
+/* Extenders */
+%button {
+  display: block;
+  font-size: $h6;
+  transition: all $transition-speed/2 $easeInOutBack;
+  position: relative;
+  color: $button-color;
+  background-color: #fff;
+  font-style: italic;
+
+  @include padding($padding/2 $padding);
+
+  &:hover {
+    // background-color: transparent;
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    transition: all $transition-speed/2 $easeInOutBack;
+
+    @include position(absolute, 0);
+  }
+
+  &:before {
+    border-top: 1px solid $button-color;
+    border-bottom: 1px solid $button-color;
+    transform: scale(0, 1);
+  }
+
+  &:after {
+    border-left: 1px solid $button-color;
+    border-right: 1px solid $button-color;
+    transform: scale(1, 0);
+  }
+
+  &:hover:before,
+  &:hover:after {
+    transform: scale(1, 1);
+  }
+}
+
+.button {
+  @extend %button;
+}
+
+%post-flourish {
+  &:before,
+  &:after {
+    font-family: $icon-font;
+    font-size: $h5;
+    color: $pale-mint;
+    display: block;
+  }
+
+  &:before {
+    content: '9';
+    margin-bottom: $margin * 1.2;
+  }
+
+  &:after {
+    content: '0';
+    margin-top: $margin * 1.2;
+  }
+}
+
+%heading {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $pale-mint;
+  }
+}
+
+%lead {
+  font-size: $h6;
+  color: $pale-gray;
+  margin-bottom: modular-scale(1);
+  font-family: $merriweather;
+}
+
+.lead {
+  @extend %lead;
+}

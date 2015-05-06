@@ -1,0 +1,15 @@
+/*
+Footer
+ */
+
+.footer {
+    text-align: center;
+    color: $pale-gray;
+
+    @include padding($padding);
+    @include margin(auto);
+
+    .heart {
+      color: $mint;
+    }
+}

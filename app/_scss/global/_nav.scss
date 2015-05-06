@@ -1,0 +1,47 @@
+/*
+Nav
+ */
+
+.nav {
+  text-align: center;
+
+  @include padding($padding);
+
+  li {
+    display: inline-block;
+
+    @include margin(0 $margin/2);
+  }
+
+  .nav-link {
+    @extend %button;
+
+    background-color: transparent;
+    color: $mint;
+
+    &:before,
+    &:after {
+      border-color: $mint;
+    }
+  }
+
+}
+
+.full .nav {
+  position: absolute;
+  bottom: 6rem;
+  left: 0;
+  right: 0;
+  z-index: 5;
+   background-color: transparent;
+
+  .nav-link {
+    color: #fff;
+    background-color: transparent;
+
+    &:before,
+    &:after  {
+      border-color: #fff;
+    }
+  }
+}

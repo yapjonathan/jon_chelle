@@ -1,0 +1,39 @@
+/*
+Home
+ */
+
+.home {
+  .post-time {
+    font-size: modular-scale(-1);
+  }
+
+  .link-to-post {
+    margin-bottom: $margin;
+  }
+
+  .button-group {
+    @include display(flex);
+    @include align-items(stretch);
+    @include flex-direction(column);
+    @include justify-content(center);
+
+    li {
+      margin: $margin;
+    }
+
+    .button {
+      min-width: em(150px);
+    }
+
+    small {
+      display: block;
+      font-size: $base-font-size * .6;
+      color: mix($button-color, $base, 70%);
+      margin-top: -$margin/5;
+    }
+
+    @include media ($large-mobile-up) {
+      @include flex-direction(row);
+    }
+  }
+}

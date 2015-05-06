@@ -4,7 +4,8 @@
 # 3. config.yml
 
 name: jon_chelle
-description: Jon Chelle tying the knot
+name: jonchelle
+description: "Jonathan & Michelle tying the knot"
 author:
   name: Jonathan Yap
   email: hi@jonathanyap.com
@@ -19,8 +20,11 @@ include: ['.htaccess']
 future: true
 show_drafts: true
 
+permalink: pretty
+
 # Markdown library
 markdown: redcarpet
 #   extensions: ['fenced_code_blocks', 'smart']
 
 pygments: true
+highlighter: pygments

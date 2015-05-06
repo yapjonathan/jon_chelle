@@ -1,0 +1,36 @@
+/*
+Post
+ */
+
+.post,
+.home {
+  min-height: 800px;
+  min-height: 80vh;
+
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include flex-wrap(nowrap);
+
+  @include outer-container;
+}
+
+.post {
+  width: 100%;
+}
+
+.post-content {
+  @include flex(0 1 auto);
+  @include align-self(center);
+  @include padding($padding);
+  @include padding(5vh $padding);
+  @include span-columns(12);
+  @extend %post-flourish;
+  @extend %heading;
+
+  .lead {
+    @extend %lead;
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,38 @@
+/*
+Map
+ */
+
+.map {
+  min-height: 300px;
+  min-height: 40vh;
+  width: 100%;
+
+  @include outer-container(em(1080));
+
+  @include display(flex);
+  @include align-items(center);
+  @include flex-direction(column);
+  @include justify-content(center);
+  @include flex-wrap(nowrap);
+}
+
+.map-inner {
+  width: 100%;
+
+  @include flex(1 1 auto);
+  @include align-self(center);
+  @extend %post-flourish;
+  @include padding($padding);
+  @include padding(5vh $padding);
+  @extend %heading;
+
+  h5 {
+    margin-bottom: $margin*2;
+  }
+}
+
+.google-map {
+  width: 100%;
+  min-height: 280px;
+  min-height: 40vh;
+}
