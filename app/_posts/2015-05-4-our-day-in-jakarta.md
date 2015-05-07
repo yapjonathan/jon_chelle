@@ -4,7 +4,7 @@ title:  "Our day in Jakarta"
 categories: update
 ---
 
-# Our day in Jakarta
+## Our day in Jakarta
 
 <span class="lead">Our exciting wedding day will consist of 2 parts, a holy matrimony in a Catholic Church at noon and an evening reception.</span>
 

@@ -67,15 +67,16 @@ Header
 .header.full {
    $header-border-color: #fff;
 
-  min-height: 1024px;
-  min-height: 100vh;
+  min-height: 480px;
+  min-height: 85vh;
   overflow: hidden;
 
   .background-image {
     background: url(/img/bg-cover.jpg) no-repeat center;
     background-size: cover;
     transition: all $transition-speed $easeInOutExpo;
-    transform: scale(1.2) translateZ(0);
+    transform: scale(1.15) translateZ(0);
+    backface-visibility: hidden;
 
     @include position(absolute, -1rem);
   }
@@ -109,6 +110,11 @@ Header
     opacity: 0;
     transform: translateY(20%) translateZ(0);
   }
+
+ @include media($tablet-up) {
+    min-height: 1024px;
+    min-height: 100vh;
+ }
 }
 
 .header.full.active {
