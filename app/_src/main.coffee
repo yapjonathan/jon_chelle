@@ -37,6 +37,8 @@
   # makes public methods available
 ) jQuery
 
+(($) ->
+
 # Document Ready
 $(document).ready ->
   render()
@@ -62,3 +64,5 @@ toggleHeader = ()->
       console.log target
 
       $(target).velocity 'scroll', {easing: 'easeInOutBack'}
+
+) jQuery
