@@ -14,26 +14,30 @@
         return
 
     onEnd:
-      duration: 300
+      duration: 600
       render: (url, $container, $content) ->
         $body.css 'cursor', 'auto'
         $body.find('a').css 'cursor', 'auto'
         $container.html $content
-        $('#content').velocity 'transition.shrinkIn' , {easing: 'spring'}
+        $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
+        $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
         $('#main').velocity 'scroll'
         render()
         $(window).trigger 'load'
         return
 
     onStart:
-      duration: 300
+      duration: 600
       render: (url, $container) ->
-        $('#content').velocity 'transition.shrinkOut' , {easing: 'spring'}
+        $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
+        $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
         return
 
   ).data('smoothState')
   # makes public methods available
 ) jQuery
+
+(($) ->
 
 # Document Ready
 $(document).ready ->
@@ -42,10 +46,23 @@ $(document).ready ->
 # Render
 render = () ->
   toggleHeader()
+  scrollAnimate()
 
 # Toggle Header
 toggleHeader = ()->
   activeHeader = () ->
-    $('.header').addClass('active')
+    $('.header.full').addClass('active')
 
-  _.delay activeHeader, 1000
+  _.delay activeHeader, 600
+
+ scrollAnimate = (e) ->
+    $('.js-nav-link').unbind('click').bind 'click', (e) ->
+      e.preventDefault()
+      $current = $(e.currentTarget)
+      target = $current.attr('href')
+
+      console.log target
+
+      $(target).velocity 'scroll', {easing: 'easeInOutBack'}
+
+) jQuery

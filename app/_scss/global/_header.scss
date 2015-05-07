@@ -26,21 +26,21 @@ Header
   .center-piece:before,
   .center-piece:after {
     content: '';
-    transition: all $transition-speed $easeInOutBack;
+    transition: all $transition-speed $easeInOutExpo;
     transform-origin: center;
 
     @include position(absolute, 0rem);
   }
 
   .center-piece:before {
-    border-top: 4px double $header-border-color;
-    border-bottom: 4px double $header-border-color;
+    border-top: 3px double $header-border-color;
+    border-bottom: 3px double $header-border-color;
     transform: scale(.95, 1) translateZ(0);
   }
 
   .center-piece:after {
-    border-left: 4px double $header-border-color;
-    border-right: 4px double $header-border-color;
+    border-left: 3px double $header-border-color;
+    border-right: 3px double $header-border-color;
     transform: scale(1, .7) translateZ(0);
   }
 
@@ -74,8 +74,8 @@ Header
   .background-image {
     background: url(/img/bg-cover.jpg) no-repeat center;
     background-size: cover;
-    transition: all $transition-speed $easeInOutBack;
-    transform: scale(1.5) translateZ(0);
+    transition: all $transition-speed $easeInOutExpo;
+    transform: scale(1.2) translateZ(0);
 
     @include position(absolute, -1rem);
   }
@@ -104,6 +104,11 @@ Header
     opacity: 0;
     transform: scale(0) translateZ(0);
   }
+
+  .nav {
+    opacity: 0;
+    transform: translateY(20%) translateZ(0);
+  }
 }
 
 .header.full.active {
@@ -126,6 +131,11 @@ Header
   .logo {
     opacity: 1;
     transform: scale(1) translateZ(0);
+  }
+
+  .nav {
+    opacity: 1;
+    transform: translateY(0) translateZ(0);
   }
 }
 

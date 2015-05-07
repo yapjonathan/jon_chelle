@@ -70,8 +70,10 @@ $h5: modular-scale(2, $base-font-size );
 $h6: modular-scale(1, $base-font-size );
 
 // Easing
-$transition-speed: .6s;
+$transition-speed: .9s;
 $easeInOutBack: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+$easeInOutExpo: cubic-bezier(1, 0, 0, 1);
+$easeInOutQuart: cubic-bezier(0.77, 0, 0.175, 1);
 
 // Global Grid
 $max-width: em(720) !global;

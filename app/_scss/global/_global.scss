@@ -22,7 +22,8 @@ body {
   display: inline-block;
   color: $mint;
   padding: $padding * .75;
-  transition: all $transition-speed/2 $easeInOutBack;
+  transition: all $transition-speed/2 $easeInOutExpo;
+  backface-visibility: hidden;
 
   h1 {
       font-size: 2.8em;
@@ -51,7 +52,7 @@ body {
 %button {
   display: block;
   font-size: $h6;
-  transition: all $transition-speed/2 $easeInOutBack;
+  transition: all $transition-speed/2 $easeInOutExpo;
   position: relative;
   color: $button-color;
   background-color: #fff;
@@ -66,7 +67,7 @@ body {
   &:before,
   &:after {
     content: '';
-    transition: all $transition-speed/2 $easeInOutBack;
+    transition: all $transition-speed/2 $easeInOutExpo;
 
     @include position(absolute, 0);
   }

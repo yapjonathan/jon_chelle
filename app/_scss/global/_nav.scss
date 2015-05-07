@@ -4,6 +4,7 @@ Nav
 
 .nav {
   text-align: center;
+   transition: all $transition-speed $easeInOutExpo;
 
   @include padding($padding);
 
