@@ -3,7 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "description": "Yeoman workflow for jon_chelle",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-postcss": "^0.4.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-autoprefixer": "~1.0.1",

@@ -14,6 +14,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
   // Load all Grunt tasks
   require('load-grunt-tasks')(grunt);
+  var autoprefixer = require('autoprefixer-core');
 
   grunt.initConfig({
     // Configurable paths
@@ -24,11 +25,11 @@ module.exports = function (grunt) {
     watch: {
       sass: {
         files: ['<%= yeoman.app %>/_scss/**/*.{scss,sass}'],
-        tasks: ['sass:server', 'autoprefixer:dist']
+        tasks: ['sass:server', 'postcss:dist']
       },
-      autoprefixer: {
+      postcss: {
         files: ['<%= yeoman.app %>/css/**/*.css'],
-        tasks: ['copy:stageCss', 'autoprefixer:dist']
+        tasks: ['copy:stageCss', 'postcss:dist']
       },
       coffee: {
         files: ['<%= yeoman.app %>/_src/**/*.coffee'],
@@ -144,9 +145,22 @@ module.exports = function (grunt) {
         }]
       }
     },
-    autoprefixer: {
+    // autoprefixer: {
+    //   options: {
+    //     browsers: ['last 2 versions']
+    //   },
+    //   dist: {
+    //     expand: true,
+    //     cwd: '.tmp',
+    //     src: '**/{css,concat}/*.css',
+    //     dest: '.tmp'
+    //   }
+    // },
+    postcss: {
       options: {
-        browsers: ['last 2 versions']
+        processors: [
+          autoprefixer({ browsers: ['last 2 version'] }).postcss
+        ]
       },
       dist: {
         expand: true,
@@ -379,7 +393,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'concurrent:server',
-      'autoprefixer:dist',
+      'postcss:dist',
       'browserSync:server',
       'watch'
     ]);
@@ -415,8 +429,8 @@ module.exports = function (grunt) {
     'concurrent:dist',
     'useminPrepare',
     'concat',
+    'postcss:dist',
     'cssmin',
-    'autoprefixer:dist',
     'uglify',
     'imagemin',
     'svgmin',
