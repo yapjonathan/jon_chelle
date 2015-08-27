@@ -1,7 +1,7 @@
 (($) ->
   'use strict'
   $body = $('html, body')
-  content = $('#main').smoothState(
+  smoothOption =
     prefetch: true,
     development : true,
     pageCacheSize: 4,
@@ -13,7 +13,7 @@
         $body.find('a').css 'cursor', 'wait'
         return
 
-    onEnd:
+    onAfter:
       duration: 600
       render: (url, $container, $content) ->
         $body.css 'cursor', 'auto'
@@ -33,7 +33,8 @@
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
         return
 
-  ).data('smoothState')
+  smoothState = $('#main').smoothState(smoothOption).data('smoothState')
+  return
   # makes public methods available
 ) jQuery
 
@@ -47,6 +48,7 @@ $(document).ready ->
 render = () ->
   toggleHeader()
   scrollAnimate()
+  vid()
 
 # Toggle Header
 toggleHeader = ()->
@@ -64,5 +66,12 @@ toggleHeader = ()->
       console.log target
 
       $(target).velocity 'scroll', {easing: 'easeInOutBack'}
+
+  vid = () ->
+    $('#bg-vid').vide
+      mp4: '/img/bg-cover'
+      webm: '/img/bg-cover'
+      ogv: '/img/bg-cover'
+      poster: '/img/bg-cover'
 
 ) jQuery
