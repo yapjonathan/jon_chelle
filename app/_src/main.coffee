@@ -27,7 +27,7 @@
         return
     ,
     onAfter: ($container, $content) ->
-      $body.payload()
+      $container.payload()
       return
 
   smoothState = $('#main').smoothState(options).data('smoothState')
