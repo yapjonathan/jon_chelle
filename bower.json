@@ -10,6 +10,7 @@
     "underscore": "~1.8.3",
     "velocity": "~1.2.2",
     "history.js": "~1.8.0",
-    "smoothstate": "~0.5.2"
+    "smoothstate": "~0.5.2",
+    "vide": "~0.3.7"
   }
 }

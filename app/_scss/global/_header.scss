@@ -147,7 +147,7 @@ Header
 
 // Media Queries
 .header {
-  @include media($large-mobile-up) {
+  @include media($tablet-up) {
 
     .center-piece {
       @include padding($padding*4);
