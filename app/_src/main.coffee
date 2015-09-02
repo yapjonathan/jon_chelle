@@ -42,40 +42,40 @@
 
 ) jQuery
 
-(($) ->
-  'use strict'
-  $body = $('html, body')
-  $main = $('#main')
-  $content = $('#content')
-  options =
-    onReady:
-      duration: 600
-      render: ($container, $content) ->
-        $body.css 'cursor', 'auto'
-        $body.find('a').css 'cursor', 'auto'
-        $container.html $content
-        $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
-        $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
-        $('#main').velocity 'scroll'
-        return
-    ,
-    onStart:
-      duration: 600
-      render: ($container) =>
-        smoothState.restartCSSAnimations()
-        $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
-        $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
-        return
-    ,
-    onAfter: ($container, $content) ->
-      $(@).payload().render
-      return
+# (($) ->
+#   'use strict'
+#   $body = $('html, body')
+#   $main = $('#main')
+#   $content = $('#content')
+#   options =
+#     onReady:
+#       duration: 600
+#       render: ($container, $content) ->
+#         $body.css 'cursor', 'auto'
+#         $body.find('a').css 'cursor', 'auto'
+#         $container.html $content
+#         $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
+#         $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
+#         $('#main').velocity 'scroll'
+#         return
+#     ,
+#     onStart:
+#       duration: 600
+#       render: ($container) =>
+#         smoothState.restartCSSAnimations()
+#         $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
+#         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
+#         return
+#     ,
+#     onAfter: ($container, $content) ->
+#       $(@).payload().render
+#       return
 
-  smoothState = $('#main').smoothState(options).data('smoothState')
+#   smoothState = $('#main').smoothState(options).data('smoothState')
 
-  $.fn.smoothStateStart = () ->
-    $(this).smoothState(options).data('smoothState')
-) jQuery
+#   $.fn.smoothStateStart = () ->
+#     $(this).smoothState(options).data('smoothState')
+# ) jQuery
 
 # Document Ready
 $(document).ready ->
