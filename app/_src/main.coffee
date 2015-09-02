@@ -15,6 +15,7 @@
         $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
         $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
         $('#main').velocity 'scroll'
+        $container.payload()
         return
     ,
     onStart:
