@@ -16,7 +16,6 @@
         $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
         $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
         $('#main').velocity 'scroll'
-        $body.payload()
         return
     ,
     onStart:
@@ -26,6 +25,10 @@
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
         smoothState.restartCSSAnimations()
         return
+    ,
+    onAfter: ($container, $content) ->
+      $body.payload()
+      return
 
   smoothState = $('#main').smoothState(options).data('smoothState')
 
