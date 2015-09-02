@@ -61,14 +61,14 @@
     ,
     onStart:
       duration: 600
-      render: ($container) ->
+      render: ($container) =>
         smoothState.restartCSSAnimations()
         $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
         return
     ,
     onAfter: ($container, $content) ->
-      $main.payload().render
+      $(@).payload().render
       return
 
   smoothState = $('#main').smoothState(options).data('smoothState')
