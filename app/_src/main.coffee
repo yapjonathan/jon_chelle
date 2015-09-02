@@ -16,6 +16,7 @@
         $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
         $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
         $('#main').velocity 'scroll'
+        $body.payload()
         return
     ,
     onStart:
@@ -25,10 +26,6 @@
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
         smoothState.restartCSSAnimations()
         return
-    ,
-    onAfter: ($container, $content) ->
-      $body.payload()
-      return
 
   smoothState = $('#main').smoothState(options).data('smoothState')
 
@@ -44,11 +41,8 @@
 
   # Toggle Header
   toggleHeader = ->
-    activeHeader = () ->
-      $('.header.full').addClass('active')
-
-    _.delay activeHeader, 600
-    $.when(activeHeader).done( -> backgroundVideo())
+    $('.header.full').addClass('active')
+    $.when(toggleHeader).done( -> backgroundVideo())
 
   scrollAnimate = (e) ->
     $('.js-nav-link').unbind('click').bind 'click', (e) ->
