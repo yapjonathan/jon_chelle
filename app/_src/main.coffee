@@ -58,9 +58,9 @@
       mp4: '/img/bg-cover'
       webm: '/img/bg-cover'
       ogv: '/img/bg-cover'
-      poster: '/img/bg-cover'
+      # poster: '/img/bg-cover'
     ,
-      posterType: 'jpg'
+      # posterType: 'jpg'
       mute: true
       loop: true
       position: '50% 50%'
