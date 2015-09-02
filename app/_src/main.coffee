@@ -1,49 +1,16 @@
 (($) ->
-  'use strict'
-  $body = $('html, body')
-  $main = $('#main')
-  $content = $('#content')
-  options =
-    onReady:
-      duration: 600
-      render: ($container, $content) ->
-        $body.css 'cursor', 'auto'
-        $body.find('a').css 'cursor', 'auto'
-        $container.html $content
-        $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
-        $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
-        $('#main').velocity 'scroll'
-        $container.payload()
-        return
-    ,
-    onStart:
-      duration: 600
-      render: ($container) ->
-        smoothState.restartCSSAnimations()
-        $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
-        $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
-        return
-    ,
-    onAfter: ($container, $content) ->
-      $container.payload()
-      return
-
-  smoothState = $('#main').smoothState(options).data('smoothState')
-
-  $.fn.smoothStateStart = () ->
-    $(this).smoothState(options).data('smoothState')
-) jQuery
-
-(($) ->
   methods =
     init: (options) ->
-      toggleHeader()
-      scrollAnimate()
+      render()
+
+  render = ->
+    toggleHeader()
+    scrollAnimate()
+    backgroundVideo()
 
   # Toggle Header
   toggleHeader = ->
     $('.header.full').addClass('active')
-    $.when(toggleHeader).done( -> backgroundVideo())
 
   scrollAnimate = (e) ->
     $('.js-nav-link').unbind('click').bind 'click', (e) ->
@@ -64,11 +31,6 @@
       loop: true
       position: '50% 50%'
 
-  animateScrollIn = ->
-    $('#content').velocity 'transition.fadeIn' , {easing: 'spring', duration: 600}
-    $('.header').velocity 'transition.slideDownIn' , {easing: 'spring', duration: 600}
-    $('#main').velocity 'scroll'
-
   $.fn.payload = (methodOrOptions) ->
     if methods[methodOrOptions]
       return methods[methodOrOptions].apply(this, Array::slice.call(arguments, 1))
@@ -80,6 +42,41 @@
 
 ) jQuery
 
+(($) ->
+  'use strict'
+  $body = $('html, body')
+  $main = $('#main')
+  $content = $('#content')
+  options =
+    onReady:
+      duration: 600
+      render: ($container, $content) ->
+        $body.css 'cursor', 'auto'
+        $body.find('a').css 'cursor', 'auto'
+        $container.html $content
+        $('#content').velocity 'transition.fadeIn' , {easing: 'spring'}
+        $('.header').velocity 'transition.slideDownIn' , {easing: 'spring'}
+        $('#main').velocity 'scroll'
+        return
+    ,
+    onStart:
+      duration: 600
+      render: ($container) ->
+        smoothState.restartCSSAnimations()
+        $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
+        $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
+        return
+    ,
+    onAfter: ($container, $content) ->
+      $main.payload().render
+      return
+
+  smoothState = $('#main').smoothState(options).data('smoothState')
+
+  $.fn.smoothStateStart = () ->
+    $(this).smoothState(options).data('smoothState')
+) jQuery
+
 # Document Ready
 $(document).ready ->
-  $('body').payload()
+  $('body').payload().render
