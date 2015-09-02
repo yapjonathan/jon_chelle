@@ -10,8 +10,6 @@
     onReady:
       duration: 600
       render: ($container, $content) ->
-        debugger
-        console.log 'hi3'
         $body.css 'cursor', 'auto'
         $body.find('a').css 'cursor', 'auto'
         $container.html $content
@@ -23,27 +21,24 @@
     onStart:
       duration: 600
       render: ($container) ->
-        console.log 'hi'
         $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
-        smoothState.restartCSSAnimations();
+        smoothState.restartCSSAnimations()
         return
     ,
     onAfter: ($container, $content) ->
-        $body.payload()
-        return
+      $body.payload()
+      return
 
   smoothState = $('#main').smoothState(options).data('smoothState')
 
   $.fn.smoothStateStart = () ->
     $(this).smoothState(options).data('smoothState')
-
 ) jQuery
 
 (($) ->
   methods =
     init: (options) ->
-      # animateScrollIn()
       toggleHeader()
       scrollAnimate()
 
@@ -56,12 +51,11 @@
     $.when(activeHeader).done( -> backgroundVideo())
 
   scrollAnimate = (e) ->
-      $('.js-nav-link').unbind('click').bind 'click', (e) ->
-        e.preventDefault()
-        $current = $(e.currentTarget)
-        target = $current.attr('href')
-
-        $(target).velocity 'scroll', {easing: 'easeInOutBack'}
+    $('.js-nav-link').unbind('click').bind 'click', (e) ->
+      e.preventDefault()
+      $current = $(e.currentTarget)
+      target = $current.attr('href')
+      $(target).velocity 'scroll', {easing: 'easeInOutBack'}
 
   backgroundVideo = ->
     $('#bg-vid').vide
