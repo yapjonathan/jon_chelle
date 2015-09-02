@@ -4,8 +4,6 @@
   $main = $('#main')
   $content = $('#content')
   options =
-    cacheLength: 4
-    debug: true
     onReady:
       duration: 600
       render: ($container, $content) ->
@@ -59,9 +57,9 @@
       mp4: '/img/bg-cover'
       webm: '/img/bg-cover'
       ogv: '/img/bg-cover'
-      # poster: '/img/bg-cover'
+      poster: '/img/bg-cover'
     ,
-      # posterType: 'jpg'
+      posterType: 'jpg'
       mute: true
       loop: true
       position: '50% 50%'
