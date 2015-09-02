@@ -4,8 +4,7 @@
   $main = $('#main')
   $content = $('#content')
   options =
-    prefetch: true
-    pageCacheSize: 4
+    cacheLength: 4
     debug: true
     onReady:
       duration: 600
@@ -21,9 +20,9 @@
     onStart:
       duration: 600
       render: ($container) ->
+        smoothState.restartCSSAnimations()
         $('.header').velocity 'transition.slideUpOut' , {easing: 'spring'}
         $('#content').velocity 'transition.fadeOut' , {easing: 'spring'}
-        smoothState.restartCSSAnimations()
         return
     ,
     onAfter: ($container, $content) ->
