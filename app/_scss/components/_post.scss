@@ -20,6 +20,14 @@ Post
   width: 100%;
 }
 
+.post.with-map .post-content {
+  @include padding(5vh $padding $padding);
+
+  &:after {
+    display: none;
+  }
+}
+
 .post-content {
   @include flex(0 1 auto);
   @include align-self(center);

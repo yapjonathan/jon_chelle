@@ -31,6 +31,14 @@ Map
   }
 }
 
+.post.with-map + .map .map-inner {
+  @include padding($padding $padding 5vh);
+
+  &:before {
+    display: none;
+  }
+}
+
 .google-map {
   width: 100%;
   min-height: 280px;
