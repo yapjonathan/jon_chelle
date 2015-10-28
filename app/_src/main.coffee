@@ -7,6 +7,7 @@
     toggleHeader()
     scrollAnimate()
     backgroundVideo()
+    iframeResize()
 
   # Toggle Header
   toggleHeader = ->
@@ -30,6 +31,9 @@
       mute: true
       loop: true
       position: '50% 50%'
+
+  iframeResize = ->
+    $('iframe').iFrameResize()
 
   $.fn.payload = (methodOrOptions) ->
     if methods[methodOrOptions]

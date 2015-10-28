@@ -11,6 +11,7 @@
     "velocity": "~1.2.2",
     "history.js": "~1.8.0",
     "smoothstate": "~0.5.2",
-    "vide": "~0.3.7"
+    "vide": "~0.3.7",
+    "iframe-resizer": "~3.5.0"
   }
 }
