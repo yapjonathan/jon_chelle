@@ -18,6 +18,11 @@ Post
 
 .post {
   width: 100%;
+
+  &.with-map {
+    min-height: 300px;
+    min-height: 40vh;
+  }
 }
 
 .post.with-map .post-content {
